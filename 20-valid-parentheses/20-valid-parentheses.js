@@ -3,46 +3,49 @@
  * @return {boolean}
  */
 
-var isValid = function(s) {    
-  let stack = [];
-
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
-      stack.push(s[i]);
-      continue;
-    }
-      
-    let topOfStack = stack[stack.length - 1];
-      
-    switch(topOfStack) {
+var isValid = function(s) {
+  if (s.length < 2) return false;
+    
+  let stack = []; 
+  
+  for (let char of s) {
+    switch(char) {
       case '(':
-        if (s[i] === ')') {
-           stack.pop();
-        } else {
-          return false;
-        }
-            
-        break;
-      case '[':
-        if (s[i] === ']') {
-          stack.pop();
-        } else {
-          return false;
-        }
-            
+        stack.push(char);
         break;
       case '{':
-        if (s[i] === '}') {
+        stack.push(char);
+        break;
+      case '[':
+        stack.push(char);
+        break;
+      case ')':
+        if (stack[stack.length - 1] === '(') {
+          stack.pop();
+        } else { 
+          return false;
+        }
+        break;
+      case ']':
+        if (stack[stack.length - 1] === '[') {
           stack.pop();
         } else {
           return false;
         }
-            
-        break;
+        break; 
+      case '}':
+        if (stack[stack.length - 1] === '{') {
+          stack.pop();
+        } else {
+          return false;
+        }
+        break; 
       default:
-        return false;
-      }
     }
-    
+  }
+  
   return stack.length ? false : true;
 };
+
+
+
