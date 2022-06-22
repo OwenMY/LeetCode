@@ -40,7 +40,5 @@ var minWindow = function(s, t) {
     }
   }
     
-  
-    
   return result.length === Infinity ? '' : result;
 };
