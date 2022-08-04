@@ -11,42 +11,6 @@
  * @return {boolean}
  */
 
-/*
-I - root
-O - boolean
-C - none
-E - if root is return null
-
-DFS
-Base Case: if root is null, return null
-State: current node of both sides
-
-will utilize two stacks
-
-Psuedocode
-if root is null, return null
-
-create left stack array with roots left if not null
-create right stack array with roots right if not null
-
-create current left node
-create current right node
-
-while loop until both stacks are empty
-  set current left node to the the popping of the left stack
-  set current right node to the popping of the right stack
-  
-  if current left and right nodes are different
-    return false
-    
-  push left nodes left child into left stack
-  push left nodes right child into left stack
-  push right nodes right child into right stack
-  push right nodes right child into right stack
-
-return if stack are different lengths, false otherwise true
-*/
-
 var isSymmetric = function(root) {
   if (!root) return null;
     
