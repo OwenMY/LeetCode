@@ -12,37 +12,6 @@
  * @return {boolean}
  */
 
-/*
-I - node
-O - boolean
-C - none
-E - no root
-
-appraoch
-dfs
-
-if roots left and right are null and sum total is equal to target sum
-  return true
-otherwise 
-  return false
-
-Psuedocode
-if there is no root, return false
-
-create total Sum adding current number 
-set left to recursive left
-set right to recrusive right
-
-if left and right are null and total sum is equal to target sum
-  return true
-  
-if left or right are true
-  return true
-otherwise
-  return false
-*/
-
-
 var hasPathSum = function(root, targetSum, pathSum = 0) {
   if (!root) return false;
     
