@@ -15,9 +15,6 @@ var preorderTraversal = function(root) {
   if (!root) return [];
   
   let result = [root.val];
-
-  result = result.concat(preorderTraversal(root.left));
-  result = result.concat(preorderTraversal(root.right));
     
-  return result;
+  return result.concat(preorderTraversal(root.left), preorderTraversal(root.right));
 };
