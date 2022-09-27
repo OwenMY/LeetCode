@@ -11,19 +11,6 @@
  * @return {number[]}
  */
 
-/*
-I - node
-O - array of nodes
-C - none
-E -  no root, return null
-
-Psuedocode
-
-
-
-
-*/
-
 var preorderTraversal = function(root) {
   if (!root) return [];
   
