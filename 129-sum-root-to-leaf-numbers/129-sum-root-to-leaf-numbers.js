@@ -52,7 +52,7 @@ var sumNumbers = function(root, path = []) {
   }
     
   sumTotal+= root.left ? sumNumbers(root.left, path) : 0;
-  sumTotal+= root.right ? sumNumbers(root.right, path): 0;
+  sumTotal+= root.right ? sumNumbers(root.right, path) : 0;
     
   path.pop();
     
