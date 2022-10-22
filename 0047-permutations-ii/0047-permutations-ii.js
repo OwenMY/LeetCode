@@ -17,7 +17,7 @@ var permuteUnique = function(nums) {
     }
       
     for (let i = 0; i < nums.length; i++) {
-      const currNum = nums.splice(i, 1)[0];
+      const currNum = nums.shift();
       path.push(currNum);
       const key = path.toString();
         
@@ -27,7 +27,7 @@ var permuteUnique = function(nums) {
       }
       
       path.pop();
-      nums.splice(i, 0, currNum);
+      nums.push(currNum);
     }
   };
   
