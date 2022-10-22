@@ -22,7 +22,7 @@ var permuteUnique = function(nums) {
       const key = path.toString();
         
       if (!memo[key]) {
-        memo[key] = true;;
+        memo[key] = true;
         dfs(path);
       }
       
