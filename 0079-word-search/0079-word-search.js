@@ -50,6 +50,7 @@ var exist = function(board, word) {
      }
    };
    
+
    for (let y = 0; y < board.length; y++) {
       for (let x = 0; x < board[y].length; x++) {
          if (board[y][x] === word[0]) {
