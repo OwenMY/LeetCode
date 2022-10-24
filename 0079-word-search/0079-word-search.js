@@ -4,58 +4,6 @@
  * @return {boolean}
  */
 
-/*
-I - matrix, string
-O - boolean
-C - none
-E - cyclic traversal of graph
-
-dfs backtracking
-------------------
-states: visited object that is created during initial dfs from matrix
-basecase: is when the matrix is completely iterated
-if the char found is the last character of the word string, change found boolean to true
-
-Psuedocode
-
-create getNeighbors function
-  set xLimit to matrix row length
-  set yLimit to matrix length
-  create XDelta
-  create YDelta
-  
-  create neighbors array
-  
-  iterate xDelta
-    if coordinates are within limits and are not in visited
-      push x and y coords in an array into neighbors
-      
-  return neighbors
-
-create doesExist and set to false
-
-create dfs function
-  if current string char is equal to last char is word and word is length of 1
-    set doesExist to true
-    return
-    
-  iterate the invocation of getNeighbors
-    if current char at coords is equal to the first letter of word
-      set coordinates for visited to true
-      invoke dfs with a slice of word leaving out first char
-      set coordinates for visited to false
-
-
-iterate the matrix
-  iterate the row
-    if current char is equal to first letter of word
-      set visited for current coords to true
-      invoke dfs passing in a slice of the word leaving out first char, also passing i and j
-      set visited for current coords to false
-
-return doesExist
-*/
-
 const getNeighbors = (coords, board, visited) => {
   const xLimit = board[0].length;
   const yLimit = board.length;
@@ -83,7 +31,7 @@ var exist = function(board, word) {
    let doesExist = false;
    const visited = {};
     
-   const dfs = (coords, word) => {
+   const dfs = (coords, word, visited) => {
      if (!word.length) {
        doesExist = true;
        return;
@@ -96,7 +44,7 @@ var exist = function(board, word) {
        if (board[y][x] === word[0]) {
          const key = neighbor.toString();
          visited[key] = true;
-         dfs(neighbor, word.slice(1));
+         dfs(neighbor, word.slice(1), visited);
          visited[key] = false;
        }
      }
@@ -107,7 +55,7 @@ var exist = function(board, word) {
          if (board[y][x] === word[0]) {
            const key = `${y},${x}`;
            visited[key] = true;
-           dfs([y, x], word.slice(1));  
+           dfs([y, x], word.slice(1), visited);  
            visited[key] = false;
          }  
       }   
