@@ -3,53 +3,6 @@
  * @return {string[]}
  */
 
-/*
-I - String
-O - array of strings
-C - none
-E - if string is empty, return empty array
-if not a palindrome, return empty array
-
-dfs backtracking
-================
-state: current combo of letters, memo
-basecase: when combo length is equal to n, which is input string length
-
-Psuedocode
-
-process the input string
-if input string is length of 0 or the input string is invalid
-  return an empty array
-
-create result array
-create visited
-set n as processed string arrays length
-
-create dfs function
-   if path length is equal to n
-     if current path is not visited
-      
-       create half 2 which is a reversed copy of path joined
-       create permutations combining joined path, mid, and path 2
-       push permutation into the result array
-     
-     return
-     
-   iterate chars array
-     push current char to path
-     if visited doesnt have current path
-       add current path to visited
-       slice current char from chars array
-       invoke dfs passing in chars array, mid, path
-       put slice back into chars array
-     pop current char from path
-       
-
-invoke dfs function passing in chars array, and mid char as well as an empty array
-
-return result array
-*/
-
 const containsPalindromes = (string) => {
   const result = {
     chars: [],
